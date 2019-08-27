@@ -1,0 +1,33 @@
+﻿"Item Code","Item Name","Effective Date","Reference No.",IN,OUT,BALANCE,"Transaction Type","Request By","Sytem Documnet No."
+"A001      ","Uniform size-36",01/Jun/2019,,,,25,B/B,
+"A001      ","Uniform size-36",18/Jun/2019,1001036,-,1,24,-,"OC-002    ",2001031
+"A002      ","Uniform size-38",01/Jun/2019,,,,25,B/B,
+"A003      ","Uniform size-40",01/Jun/2019,,,,25,B/B,
+"A004      ","Uniform size-42",01/Jun/2019,,,,25,B/B,
+"A005      ","Uniform size-44",01/Jun/2019,,,,25,B/B,
+"A006      ","Uniform size-46",01/Jun/2019,,,,25,B/B,
+"B001      ","Pen [Blue]",01/Jun/2019,,,,10,B/B,
+"B001      ","Pen [Blue]",17/Jun/2019,1001038,-,1,9,-,"OC-013    ",2001026
+"B001      ","Pen [Blue]",25/Jun/2019,1001047,-,1,8,-,"OC-011    ",2001037
+"B002      ","Pen [Red]",01/Jun/2019,,,,10,B/B,
+"B002      ","Pen [Red]",17/Jun/2019,1001039,-,1,9,-,"OC-013    ",2001027
+"B002      ","Pen [Red]",27/Jun/2019,1001048,-,1,8,-,"OC-002    ",2001038
+"B003      ","Pen [Black]",01/Jun/2019,,,,10,B/B,
+"B003      ","Pen [Black]",17/Jun/2019,1001037,-,1,9,-,"OC-013    ",2001025
+"B003      ","Pen [Black]",25/Jun/2019,1001046,-,1,8,-,"OC-013    ",2001036
+"B004      ","Pen- Highlight",01/Jun/2019,,,,10,B/B,
+"B004      ","Pen- Highlight",12/Jun/2019,PO-2019-06-12-001,10,-,20,+,OC-002,2001032
+"D001      ","Max HD-50",01/Jun/2019,,,,10,B/B,
+"D002      ","Max HD-10",01/Jun/2019,,,,10,B/B,
+"D003      ","Staple for Max HD-50",01/Jun/2019,,,,10,B/B,
+"D003      ","Staple for Max HD-50",25/Jun/2019,1001045,-,1,9,-,"OC-002    ",2001035
+"D004      ","Staple for Max HD-10",01/Jun/2019,,,,10,B/B,
+"D004      ","Staple for Max HD-10",18/Jun/2019,1001043,-,1,9,-,"OC-013    ",2001033
+"E001      ","File size-1",01/Jun/2019,,,,10,B/B,
+"E001      ","File size-1",17/Jun/2019,1001040,-,1,9,-,"OC-011    ",2001028
+"E001      ","File size-1",17/Jun/2019,1001041,-,1,8,-,"OC-011    ",2001029
+"E002      ","File size-2",01/Jun/2019,,,,10,B/B,
+"E002      ","File size-2",17/Jun/2019,1001042,-,2,8,-,"OC-011    ",2001030
+"E003      ","File size-3",01/Jun/2019,,,,10,B/B,
+"E004      ","File size-4",01/Jun/2019,,,,10,B/B,
+"E004      ","File size-4",25/Jun/2019,1001044,-,2,8,-,"OC-013    ",2001034
