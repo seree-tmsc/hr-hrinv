@@ -1,0 +1,4 @@
+﻿Req_Date,Req_No,Req_Line,Category_Code,Category_Name,Item_Code,Item_Name,UOM,Quantity,Req_By,Status,Due_Date
+2019-11-04,OC-002-2019-11-04,1,Stationary,Stationary,OFM1301010,"ปากกาลบคำผิด 4.2 มล. เพนเทล Fine Point ZL72-WBT",อัน,1,"OC-013    ",1,1970-01-01
+2019-11-04,OC-002-2019-11-04,2,Uniform,"Uniform ",PANTS-SIZE-34,"Pants / Size (กางเกง) Size 34",ตัว,1,"OA-001    ",0,1970-01-01
+2019-11-04,OC-002-2019-11-04,3,PPE,PPE,SHOES-SIZE-32,"รองเท้า SAFETY MEDEL ACF210 COLOR BLACK No.32","คู่       ",1,"OC-002    ",0,1970-01-01

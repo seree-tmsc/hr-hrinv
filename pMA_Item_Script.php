@@ -145,7 +145,7 @@
         $('.delete_data').click(function(){
             //alert('You click class view_data');
 
-            var code = $(this).attr("category_code");
+            var code = $(this).attr("item_code");
             //alert(code);            
 
             var lConfirm = confirm("Do you want to delete this record?");

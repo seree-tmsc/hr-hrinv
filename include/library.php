@@ -25,12 +25,17 @@
 <link rel="stylesheet" href="../vendors/my/css/my.css">
 <script src="../vendors/my/js/my.js" type="text/javascript"></script>
 
-
 <!-- DataTables -->
 <link rel="stylesheet" href="../../vendors/DataTables/datatables.css">
-<script src="../../vendors/DataTables/datatables.js"></script>
+<script src="../vendors/DataTables/datatables.js"></script>
+
+<!-- Select2 -->
+<link href="../../vendors/select2-4.0.10/dist/css/select2.css" rel="stylesheet" />
+<script src="../../vendors/select2-4.0.10/dist/js/select2.full.js"></script>
+<script src="../../vendors/select2-4.0.10/dist/js/select2.js"></script>
 
 <!-- calendar -->
+<!--
 <link type="text/css" href="../vendors/jquery.calendars.package-2.1.0/css/jquery.calendars.picker.css" rel="stylesheet"/>
 <script type="text/javascript" src="../vendors/jquery.calendars.package-2.1.0/js/jquery.plugin.js"></script>
 <script type="text/javascript" src="../vendors/jquery.calendars.package-2.1.0/js/jquery.calendars.js"></script>
@@ -40,8 +45,10 @@
 <script type="text/javascript" src="../vendors/jquery.calendars.package-2.1.0/js/jquery.calendars.thai.js"></script>
 <script type="text/javascript" src="../vendors/jquery.calendars.package-2.1.0/js/jquery.calendars-th.js"></script>
 <script type="text/javascript" src="../vendors/jquery.calendars.package-2.1.0/js/jquery.calendars.thai-th.js"></script>
+-->
 
 <script type="text/javascript">
+    /*
     $(function() {
         $('#mydate1').calendarsPicker({calendar: $.calendars.instance('thai','th')});
         $('#mydate2').calendarsPicker({calendar: $.calendars.instance('thai','th')});
@@ -49,4 +56,5 @@
         $('#update_emp_birth_date').calendarsPicker({calendar: $.calendars.instance('thai','th')});
         $('#update_job_working_date').calendarsPicker({calendar: $.calendars.instance('thai','th')});
     });
+    */
 </script>

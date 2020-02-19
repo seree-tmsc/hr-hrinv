@@ -22,15 +22,16 @@
             echo "<thead style='background-color:CornflowerBlue;'>";
 
             echo "<tr>";
-            echo "<th class='text-center'>No.</th>";
+            
             echo "<th class='text-center'>Enter Date</th>";
-            echo "<th class='text-center'>Request No.</th>";
+            echo "<th class='text-center'>Due Date</th>";
+            echo "<th class='text-center'>Req.No.</th>";
+            echo "<th class='text-center'>Li</th>";
             echo "<th class='text-center'>Item Code</th>";
             echo "<th class='text-center'>Item Name</th>";
-            echo "<th class='text-center'>UOM</th>";
-            echo "<th class='text-center'>Quantity</th>";
-            echo "<th class='text-center'>Due Date</th>";
-            echo "<th class='text-center'>Enter By</th>";
+            echo "<th class='text-center'>U.</th>";
+            echo "<th class='text-center'>Q.</th>";
+            echo "<th class='text-center'>Req.By</th>";
             echo "<th class='text-center'>Issue</th>";
             echo "</tr>";
 
@@ -41,24 +42,21 @@
 
             while ($ds = $statement->fetch(PDO::FETCH_NAMED))
             {
-                /*
-                echo $ds['enter_date'][0] . "<br>";
-                echo $ds['enter_date'][1] . "<br>";
-                */
-
                 echo "<tr>";
-                echo "<td class='text-center'>" . $nI . "</td>";
-                echo "<td class='text-center'>" . date('d-M-Y', strtotime($ds['enter_date'][0])) . "</td>";
-                echo "<td class='text-center'>" . $ds['request_no'] . "</td>";
-                echo "<td class='text-center'>" . $ds['item_code'][0] . "</td>";
+                
+                
+                echo "<td>" . date('d-M-Y', strtotime($ds['enter_date'][0])) . "</td>";
+                echo "<td>" . date('d-M-Y', strtotime($ds['due_date'])) . "</td>";
+                echo "<td>" . $ds['request_no'] . "</td>";
+                echo "<td class='text-center'>" . $ds['request_line'] . "</td>";
+                echo "<td>" . $ds['item_code'][0] . "</td>";
                 echo "<td>" . $ds['item_name'] . "</td>";
                 echo "<td class='text-center'>" . $ds['unit'] . "</td>";
                 echo "<td class='text-right'>" . $ds['quantity'] . "</td>";
-                echo "<td class='text-center'>" . date('d-M-Y', strtotime($ds['due_date'])) . "</td>";
                 echo "<td class='text-center'>" . $ds['request_by']. "</td>";
 
                 echo "<td class='text-center'>";                
-                echo "<a href='#' class='issue_data' request_no='" . $ds['request_no']. "'>";
+                echo "<a href='#' class='issue_data' request_no='" . $ds['request_no'] . "' request_line='" . $ds['request_line'] . "' quantity='" . $ds['quantity'] . "'>";
                 echo "<span class='fa fa-send-o fa-lg'></span>";
                 echo "</a>";
                 echo "</td>";

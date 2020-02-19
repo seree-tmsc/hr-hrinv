@@ -45,7 +45,8 @@
                                     {
                                         while($ds = $statement->fetch(PDO::FETCH_NAMED))
                                         {
-                                            echo "<option value='" . $ds['category_code'] . "'>". $ds['category_code'] . ' - ' . $ds['category_name'] . "</option>";
+                                            //echo "<option value='" . $ds['category_code'] . "'>". $ds['category_code'] . ' - ' . $ds['category_name'] . "</option>";
+                                            echo "<option value='" . $ds['category_code'] . "'>". $ds['category_code'] . "</option>";
                                         }
                                     }
                                 ?>
@@ -86,7 +87,8 @@
                                     {
                                         while($ds = $statement->fetch(PDO::FETCH_NAMED))
                                         {
-                                            echo "<option value='" . $ds['uom_code'] . "'>". $ds['uom_code'] . ' - ' . $ds['uom_name'] . "</option>";
+                                            //echo "<option value='" . $ds['uom_code'] . "'>". $ds['uom_code'] . ' - ' . $ds['uom_name'] . "</option>";
+                                            echo "<option value='" . $ds['uom_code'] . "'>". $ds['uom_code'] . "</option>";
                                         }
                                     }
                                 ?>

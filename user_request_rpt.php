@@ -79,17 +79,17 @@
                         $this->SetFillColor(255,102,102);
                         $this->Cell( 5, 10, '', 0, 0, 'C');
 
-                        $this->Cell( 25, 10, 'Req.Date', 1, 0, 'C', true);
+                        $this->Cell( 20, 10, 'Req.Date', 1, 0, 'C', true);
                         $this->Cell( 30, 10, 'Req.No.', 1, 0, 'C', true);
-                        $this->Cell( 20, 10, 'Cat.Code.', 1, 0, 'C', true);
-                        $this->Cell( 30, 10, 'Cat.Name', 1, 0, 'C', true);
+                        $this->Cell( 15, 10, 'C.Code.', 1, 0, 'C', true);
+                        $this->Cell( 25, 10, 'C.Name', 1, 0, 'C', true);
                         $this->Cell( 20, 10, 'Item Code', 1, 0, 'C', true);
-                        $this->Cell( 70, 10, 'Item Name', 1, 0, 'C', true);
+                        $this->Cell( 85, 10, 'Item Name', 1, 0, 'C', true);
                         $this->Cell( 12, 10, 'Unit', 1, 0, 'C', true);
                         $this->Cell( 12, 10, 'Qty.', 1, 0, 'C', true);
                         $this->Cell( 20, 10, 'Req.By', 1, 0, 'C', true);
                         $this->Cell( 15, 10, 'Status', 1, 0, 'C', true);
-                        $this->Cell( 25, 10, 'Iss.Date', 1, 0, 'C', true);
+                        $this->Cell( 25, 10, 'Due Date', 1, 0, 'C', true);
                         $this->Ln();
 
                         /*
@@ -120,6 +120,10 @@
                 
                 // creat instant
                 $pdf=new PDF('L', 'mm', 'A4');
+                // Add Thai font
+                $pdf->AddFont('THSarabunNew','','THSarabunNew.php');
+                $pdf->AddFont('THSarabunNew','B','THSarabunNew_b.php');
+                
                 $pdf->AliasNbPages();
 
                 //add page
@@ -127,9 +131,8 @@
 
                 /*-------------------*/
                 /*--- Print Body --- */
-                /*-------------------*/                
-                $pdf->SetFont('Arial','',10);
-                
+                /*-------------------*/
+                $pdf->SetFont('THSarabunNew','B',12);
 
                 while ($ds = $statement->fetch(PDO::FETCH_NAMED))
                 {
@@ -139,13 +142,13 @@
                     //$pdf->SetTextColor(255, 0, 0);
                     $pdf->Cell( 5, 10, '', 0, 0, 'C');
 
-                    $pdf->Cell( 25, 10, date('d/M/Y', strtotime($ds['enter_date'][0])), 'LR', 0, 'L');
+                    $pdf->Cell( 20, 10, date('d/M/Y', strtotime($ds['enter_date'][0])), 'LR', 0, 'L');
                     $pdf->Cell( 30, 10, $ds['request_no'], 'R', 0, 'L');
-                    $pdf->Cell( 20, 10, $ds['category_code'][0], 'R', 0, 'L');
-                    $pdf->Cell( 30, 10, $ds['category_name'], 'R', 0, 'L');
+                    $pdf->Cell( 15, 10, $ds['category_code'][0], 'R', 0, 'L');
+                    $pdf->Cell( 25, 10, $ds['category_name'], 'R', 0, 'L');
                     $pdf->Cell( 20, 10, $ds['item_code'][0], 'R', 0, 'L');
-                    $pdf->Cell( 70, 10, $ds['item_name'], 'R', 0, 'L');
-                    $pdf->Cell( 12, 10, trim($ds['unit']), 'R', 0, 'C');
+                    $pdf->Cell( 85, 10, iconv('UTF-8', 'cp874', $ds['item_name']), 'R', 0, 'L');
+                    $pdf->Cell( 12, 10, iconv('UTF-8', 'cp874', trim($ds['unit'])), 'R', 0, 'C');
                     $pdf->Cell( 12, 10, $ds['quantity'], 'R', 0, 'R');
                     $pdf->Cell( 20, 10, $ds['request_by'], 'R', 0, 'L');
                     if($ds['issue_status'] == 0)
@@ -160,8 +163,12 @@
                         $pdf->Cell( 15, 10, 'Closed', 'R', 0, 'C');
                         $pdf->SetTextColor(0, 0, 0);
                     }
+                    /*
                     $pdf->Cell( 25, 10, date('d/M/Y', strtotime($ds['due_date'])), 'R', 0, 'C');
-                    $pdf->Ln();
+                    $pdf->Ln();                    
+                    */
+                    $pdf->Cell( 25, 10, date('d/M/Y', strtotime($ds['due_date'])), 'R', 0, 'C');
+                    $pdf->Ln(6);
 
                     /*------------------------------*/
                     /*--- Print detail each line ---*/
@@ -174,12 +181,12 @@
                 //print to output
                 $pdf->Cell( 5, 10, '', 0, 0, 'C');
 
-                $pdf->Cell( 25, 10, '', 'LRB', 0, 'L');
+                $pdf->Cell( 20, 10, '', 'LRB', 0, 'L');
                 $pdf->Cell( 30, 10, '', 'RB', 0, 'L');
+                $pdf->Cell( 15, 10, '', 'RB', 0, 'L');
+                $pdf->Cell( 25, 10, '', 'RB', 0, 'L');
                 $pdf->Cell( 20, 10, '', 'RB', 0, 'L');
-                $pdf->Cell( 30, 10, '', 'RB', 0, 'L');
-                $pdf->Cell( 20, 10, '', 'RB', 0, 'L');
-                $pdf->Cell( 70, 10, '', 'RB', 0, 'L');
+                $pdf->Cell( 85, 10, '', 'RB', 0, 'L');
                 $pdf->Cell( 12, 10, '', 'RB', 0, 'C');
                 $pdf->Cell( 12, 10, '', 'RB', 0, 'R');
                 $pdf->Cell( 20, 10, '', 'RB', 0, 'L');

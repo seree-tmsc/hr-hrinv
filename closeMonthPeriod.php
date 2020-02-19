@@ -38,44 +38,15 @@
                                 </div>
 
                                 <div class="panel-body">
-                                    <?php include_once('closeMonthPeriodDetail.php'); ?>
+                                    <?php include_once('closeMonthPeriod_Detail.php'); ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Logout Modal-->
-                <?php require_once("include/modal_logout.php"); ?>
-
-                <!-- Change Password Modal-->
-                <?php require_once("include/modal_chgpassword.php"); ?>
-
-                <!-- Upload Modal-->
-                <?php //require_once("include/modal_upload_customer.php"); ?>
-
                 <script>
                     $(document).ready(function(){
-                        /*
-                        $('#myTable').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 10
-                            });
-                        $('#myTable_COA_VF05').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 10
-                            });
-                        
-                        $('#myTable_COA_QcDataHeader').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 5
-                            });
-                            
-                        $('#myTable_COA_QcDataDetail').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 10
-                            });
-                        */
                     });
                 </script>
             </body>

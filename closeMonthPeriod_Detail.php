@@ -15,7 +15,7 @@
         $strSql .= "WHERE item_bf_date='" . $_POST['cYear'] . "/" . $_POST['cMonth'] . "/01' ";
         $strSql .= "ORDER BY item_code ";
         //echo $strSql . "<br>";
-        
+
         $statement = $conn->prepare( $strSql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
         $statement->execute();
         $nRecCount = $statement->rowCount();
@@ -46,7 +46,7 @@
         $strSql .= "FROM TRN_Transaction_Movement ";
         $strSql .= "ORDER BY item_code, transaction_type, iss_po_date, doc_no";
         //echo $strSql . "<br>";
-        
+
         $statement = $conn->prepare( $strSql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
         $statement->execute();
         $nRecCount = $statement->rowCount();
@@ -278,11 +278,39 @@
                                 if(Delete_MAS_Balance_End())
                                 {
                                 }
+                                else
+                                {
+                                    echo "Error ' -- Delete_MAS_Balance_End -- ' ";
+                                }
+                            }
+                            else
+                            {
+                                echo "Error ' -- Insert_MAS_Balance_End_To_MAS_Balnce_Before -- ' ";
                             }
                         }
+                        else
+                        {
+                            echo "Error ' -- Delete_TRN_Transaction_Movement -- ' ";
+                        }
+                    }
+                    else
+                    {
+                        echo "Error ' -- Copy_MAS_Balance_Before_To_History -- ' ";
                     }
                 }
+                else
+                {
+                    echo "Error ' -- Find_Balance_End -- ' ";
+                }
             }
+            else
+            {
+                echo "Error ' -- Copy_TRN_Transaction_Movement_To_History -- ' ";
+            }
+        }
+        else
+        {
+            echo "Error ' -- Copy_MAS_Balance_Before_To_History -- ' ";
         }
     }
     catch(PDOException $e)

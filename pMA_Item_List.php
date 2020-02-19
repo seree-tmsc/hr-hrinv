@@ -20,10 +20,9 @@
 
             echo "<tr>";
             //echo "<th style='width:5%;' class='text-center'>No.</th>";
-            echo "<th style='width:15%;' class='text-center'>Category Code</th>";
-            echo "<th style='width:20%;' class='text-center'>Category Name</th>";
+            echo "<th style='width:10%;' class='text-center'>Category Code</th>";
             echo "<th style='width:15%;' class='text-center'>Item Code</th>";
-            echo "<th style='width:20%;' class='text-center'>Item Name</th>";
+            echo "<th style='width:45%;' class='text-center'>Item Name</th>";
             echo "<th style='width:10%;' class='text-center'>Enter Date</th>";
             echo "<th style='width:10%;' class='text-center'>Enter By</th>";
             echo "<th style='width:10%;' class='text-center'>Mode</th>";
@@ -43,9 +42,9 @@
 
                 echo "<tr>";
                 //echo "<td class='text-right'>" . $nI . "</td>";
-                echo "<td class='text-center'>" . $ds['category_code'][0] . "</td>";
-                echo "<td>" . $ds['category_name'] . "</td>";
-                echo "<td class='text-center'>" . $ds['item_code'] . "</td>";
+                echo "<td>" . $ds['category_code'][0] . "</td>";
+                //echo "<td>" . $ds['category_name'] . "</td>";
+                echo "<td>" . $ds['item_code'] . "</td>";
                 echo "<td>" . $ds['item_name'] . "</td>";
                 echo "<td class='text-center'>" . date('d-M-Y', strtotime($ds['enter_date'][0])) . "</td>";
                 echo "<td class='text-center'>" . $ds['enter_by'][0] . "</td>";

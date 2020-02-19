@@ -18,7 +18,7 @@
                 $strSql = "SELECT * ";
                 $strSql .= "FROM MAS_Balance_Before B ";
                 $strSql .= "JOIN MAS_Item I ON I.item_code = B.item_code ";
-                $strSql .= "ORDER BY I.item_code ";
+                $strSql .= "ORDER BY I.category_code, I.item_code ";
                 //echo $strSql . "<br>";
 
                 $statement = $conn->prepare( $strSql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
@@ -46,36 +46,25 @@
                             $this->SetMargins(5,0);
                             $this->SetAutoPageBreak(true, 15);
 
-                            // Logo                                                
-                            //$this->Image('images/tmsc-new-logo-long1.gif', 98, 6, 100);
+                            // Logo
                             $this->Image('images/tmsc-new-logo-long1.gif', 55, 10, 100);
 
                             $aMonth = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
                             //assign font                                        
                             $this->SetFont('Arial','B',12);
+                            $this->SetTextColor(0, 0, 0);
                             $this -> SetY(22);
                             $this -> SetX(0);
                             //คำสั่งสำหรับขึ้นบรรทัดใหม่
                             //cell(width, height, text, border, in, align, fill, link)
                             $this->Cell( 0, 10, 'Monthly Inventory Report', 0, 0, 'C');
-                            /*
-                            $this -> SetY(25);
-                            $this -> SetX(0);
-                            $this->Cell( 0, 10, 'For : '. $aMonth[$_POST['nMonth']-1] . ' / '. $_POST['nYear'], 0, 0, 'C');
-                            */
-                            //คำสั่งสำหรับขึ้นบรรทัดใหม่
-                            /*
-                            $this->Ln();
-                            $this->Cell( 0, 0, '', 1, 0, 'C');
-                            */
+
                             $this->Ln();                        
                             $this->SetFont('Arial','',10);
                             $this->SetFillColor(255,102,102);
                             $this->Cell( 10, 10, '', 0, 0, 'C');
                             $this->Cell( 20, 10, 'Doc.No.', 1, 0, 'C', true);
                             $this->Cell( 25, 10, 'Iss./Rec.Date', 1, 0, 'C', true);
-                            //$this->Cell( 20, 10, 'Item Code', 1, 0, 'C', true);
-                            //$this->Cell( 80, 10, 'Item Name', 1, 0, 'C', true);
                             $this->Cell( 40, 10, 'Ref.No.', 1, 0, 'C', true);
                             $this->Cell( 20, 10, 'IN', 1, 0, 'C', true);
                             $this->Cell( 20, 10, 'OUT', 1, 0, 'C', true);
@@ -83,22 +72,12 @@
                             $this->Cell( 15, 10, 'Trn.Type', 1, 0, 'C', true);
                             $this->Cell( 20, 10, 'By Who', 1, 0, 'C', true);
                             $this->Ln();
-
-                            /*
-                            // Arial bold 15
-                            $this->SetFont('Arial','B',15);
-                            // Move to the right
-                            $this->Cell(80);
-                            // Title
-                            $this->Cell(30,10,'Title',1,0,'C');
-                            // Line break
-                            $this->Ln(20);
-                            */
                         }                    
                         
                         // Page footer
                         function Footer()
                         {
+                            $this->SetTextColor(0, 0, 0);
                             // Position at 1.5 cm from bottom
                             $this->SetY(-15);
                             // Arial italic 8
@@ -112,6 +91,12 @@
                     
                     // creat instant
                     $pdf=new PDF('P', 'mm', 'A4');
+                    // Add Thai font
+                    $pdf->AddFont('THSarabunNew','','THSarabunNew.php');
+                    $pdf->AddFont('THSarabunNew','B','THSarabunNew_b.php');
+                    $pdf->AddFont('THSarabunNew','I','THSarabunNew_i.php');
+                    $pdf->AddFont('THSarabunNew','BI','THSarabunNew_bi.php');
+
                     $pdf->AliasNbPages();
 
                     //add page
@@ -119,21 +104,18 @@
 
                     /*-------------------*/
                     /*--- Print Body --- */
-                    /*-------------------*/                
-                    $pdf->SetFont('Arial','',10);
-                    
-
+                    /*-------------------*/
                     while ($ds = $statement->fetch(PDO::FETCH_NAMED))
                     {
+                        $pdf->SetFont('THSarabunNew','',16);
                         /*----------------------------*/
                         /*--- Print Balance Before ---*/
                         /*----------------------------*/
                         $pdf->SetTextColor(0, 0, 255);
                         $pdf->Cell( 10, 10, '', 0, 0, 'C');
-                        $pdf->Cell( 25, 10, 'Item Code :', 'L', 0, 'L');
-                        $pdf->Cell( 20, 10, $ds['item_code'][0], 0, 0, 'L');
-                        //$pdf->Cell( 25, 10, 'Item Name :', 0, 0, 'L');
-                        $pdf->Cell( 135, 10, $ds['item_name'], 'R', 0, 'L');
+                        $pdf->Cell( 22, 10, 'Item Code :', 'L', 0, 'L');
+                        $pdf->Cell( 30, 10, $ds['item_code'][0], 0, 0, 'L');
+                        $pdf->Cell( 128, 10, iconv('UTF-8', 'cp874', $ds['item_name']), 'R', 0, 'L');
                         $pdf->Ln();
 
                         $pdf->SetTextColor(0,0,0);
@@ -166,18 +148,20 @@
                         {
                             while ($ds1 = $statement1->fetch(PDO::FETCH_NAMED))
                             {
+                                $pdf->SetFont('THSarabunNew','',14);
+
                                 /*------------------------------*/
                                 /*--- Print Detail each line ---*/
                                 /*------------------------------*/
-                                $pdf->Cell( 10, 10, '', 0, 0, 'C');
-                                $pdf->Cell( 20, 10, $ds1['doc_no'], 1, 0, 'L');
-                                $pdf->Cell( 25, 10, date('d/M/Y', strtotime($ds1['iss_po_date'])), 1, 0, 'C');
-                                //$pdf->Cell( 40, 10, $ds1['item_code'][0], 1, 0, 'L');
-                                //$pdf->Cell( 40, 10, $ds1['item_name'], 1, 0, 'L');
+                                
 
                                 switch ($ds1['transaction_type'])
                                 {
                                     case '-':
+                                        $pdf->SetTextColor(255, 0, 0);
+                                        $pdf->Cell( 10, 10, '', 0, 0, 'C');
+                                        $pdf->Cell( 20, 10, $ds1['doc_no'], 1, 0, 'L');
+                                        $pdf->Cell( 25, 10, date('d/M/Y', strtotime($ds1['iss_po_date'])), 1, 0, 'C');
                                         $pdf->Cell( 40, 10, $ds1['req_no'], 1, 0, 'L');
                                         $pdf->Cell( 20, 10, "-", 1, 0, 'R');
                                         $pdf->Cell( 20, 10, $ds1['item_qty'], 1, 0, 'R');
@@ -185,6 +169,10 @@
                                         break;
 
                                     case '+':
+                                        $pdf->SetTextColor(0, 128, 0);
+                                        $pdf->Cell( 10, 10, '', 0, 0, 'C');
+                                        $pdf->Cell( 20, 10, $ds1['doc_no'], 1, 0, 'L');
+                                        $pdf->Cell( 25, 10, date('d/M/Y', strtotime($ds1['iss_po_date'])), 1, 0, 'C');
                                         $pdf->Cell( 40, 10, $ds1['po_no'], 1, 0, 'L');
                                         $pdf->Cell( 20, 10, $ds1['item_qty'], 1, 0, 'R');
                                         $pdf->Cell( 20, 10, "-", 1, 0, 'R');

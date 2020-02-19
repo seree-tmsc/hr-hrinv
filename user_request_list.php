@@ -26,11 +26,12 @@
             echo "<th style='width:9%;' class='text-center'>Due Date</th>";
             echo "<th style='width:13%;' class='text-center'>Req.No.</th>";
             echo "<th style='width:5%;' class='text-center'>Li</th>";
-            echo "<th style='width:14%;' class='text-center'>Item Code</th>";
-            echo "<th style='width:30%;' class='text-center'>Item Name</th>";
+            echo "<th style='width:12%;' class='text-center'>Item Code</th>";
+            echo "<th style='width:25%;' class='text-center'>Item Name</th>";
             echo "<th style='width:5%;' class='text-center'>U.</th>";
             echo "<th style='width:5%;' class='text-center'>Q.</th>";            
-            echo "<th style='width:10%;' class='text-center'>R.By</th>";
+            echo "<th style='width:7%;' class='text-center'>R.By</th>";
+            echo "<th style='width:5%;' class='text-center'>Mode</th>";
             echo "</tr>";
 
             echo "</thead>";
@@ -56,6 +57,20 @@
                 echo "<td class='text-center'>" . $ds['unit'] . "</td>";
                 echo "<td class='text-right'>" . $ds['quantity'] . "</td>";                
                 echo "<td class='text-center'>" . $ds['request_by']. "</td>";
+
+                echo "<td class='text-center'>";
+                /*
+                echo "<a href='#' class='view_data' request_no=" . $ds['request_no'] . ">";
+                echo "<span class='fa fa-sticky-note-o fa-lg'>" . "&nbsp&nbsp" . "</span>";
+                echo "</a>";
+                */
+                echo "<a href='#' class='edit_data' request_no=" . $ds['request_no'] . " request_line=" . $ds['request_line'] . " >";
+                echo "<span class='fa fa-pencil-square-o fa-lg'>" . "&nbsp&nbsp" . "</span>";
+                echo "</a>";
+                echo "<a href='#' class='delete_data' request_no=" . $ds['request_no'] .  " request_line=" . $ds['request_line'] . ">";
+                echo "<span class='fa fa-trash-o fa-lg'></span>";
+                echo "</a>";
+                echo "</td>";
                 echo "</tr>";
 
                 $nI++;

@@ -1,14 +1,12 @@
 <?php
     try
-    {        
-        /*
-        echo $_POST["code"] . "<br>";
-        */
-
+    {
         include('include/db_Conn.php');
-        $strSql = "DELETE FROM MAS_Item ";
-        $strSql .= "WHERE item_code='" . $_POST["code"] . "' ";
-        echo $strSql . "<br>";
+
+        $strSql = "DELETE FROM TRN_Request ";
+        $strSql .= "WHERE request_no='" . $_POST['request_no'] . "' ";
+        $strSql .= "AND request_line=" . $_POST['request_line'];
+        //echo $strSql . "<br>";
 
         $statement = $conn->prepare( $strSql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));  
         $statement->execute();

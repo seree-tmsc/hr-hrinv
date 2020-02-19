@@ -46,7 +46,6 @@
                                             <label for="title">Select Category :</label>
                                             <select name="categories" class="form-control" style="width:500px" required>
                                                 <option value="">--- Select Category Name ---</option>
-
                                                 <?php                        
                                                     require_once('include/db_Conn.php');
 
@@ -68,7 +67,8 @@
                                                         }
                                                     }
                                                 ?>
-                                            </select>                                            
+                                            </select>
+                                            <input type="hidden" name="catCode">
                                         </div>
 
                                         <!-------------------------->
@@ -101,16 +101,16 @@
                         var categoryCode = $(this).val();                        
                         //console.log(categoryCode);
 
-                        if(categoryCode) 
+                        if(categoryCode)
                         {
                             $.ajax({
                                 url: "ajaxBrowseItemName.php",
                                 dataType: 'Json',
                                 data: {'categoryCode':categoryCode},
-                                
                                 success: function(data) 
                                 {
                                     $('select[name="items"]').empty();
+
                                     $.each(data, function(key, value) 
                                     {
                                         $('select[name="items"]').append('<option value="'+ key +'">'+ value +'</option>');

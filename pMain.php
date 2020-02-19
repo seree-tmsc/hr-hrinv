@@ -62,26 +62,6 @@
 
                 <script>
                     $(document).ready(function(){
-                        /*
-                        $('#myTable').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 10
-                            });
-                        $('#myTable_COA_VF05').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 10
-                            });
-                        
-                        $('#myTable_COA_QcDataHeader').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 5
-                            });
-                            
-                        $('#myTable_COA_QcDataDetail').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 10
-                            });
-                        */
                     });
                 </script>
             </body>

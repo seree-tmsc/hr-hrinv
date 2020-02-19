@@ -9,7 +9,9 @@
     }
     else
     {
-?>        
+        if($user_user_type == "A" or $user_user_type == "P")
+        {
+?>
         <!DOCTYPE html>
         <html>
             <head>
@@ -22,28 +24,25 @@
 
                 <?php require_once("include/library.php"); ?>    
             </head>
-            
-            <!--<body style='background-color:black;'>-->
-            <body>
-                <div class="container">
-                    <br>
 
+            <body>                
+                <div class="container">
+                    <br>                    
                     <?php require_once("include/submenu_navbar.php"); ?>
 
                     <div class="row">
-                        <div class="col-lg-6 col-lg-offset-3">
+                        <div class="col-lg-4 col-lg-offset-4">                                                        
                             <div class="panel panel-primary" id="panel-header">
                                 <div class="panel-heading">
-                                    Criteria [ Picking List ]
+                                    Monthly Request Report
                                 </div>
 
                                 <div class="panel-body">
-                                    <form method="post" action="closeMonthPeriod.php">
-                                        <div class="form-group">
-                                            <div class="col-lg-4">
-                                                <label>Month :</label>
-                                                <br>
-                                                <select name="cMonth">
+                                    <form method='post' action='user_request_rpt.php' target='_blank'>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label>Select Month</label>
+                                                <select name="cMonth" class="form-control">
                                                     <?php
                                                         $aMonthValue = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
                                                         $aMonth = array('01. January', '02. February', '03. March', '04. April', '05. May', '06. June', '07. July', '08. August', '09. September', '10. October', '11. November', '12. December');
@@ -65,11 +64,12 @@
                                                         }
                                                     ?>
                                                 </select>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <label>Year :</label>
-                                                <br>
-                                                <select name="cYear">
+
+
+                                            </div>                                    
+                                            <div class="col-lg-6">
+                                                <label>Select Year</label>
+                                                <select name="cYear" class="form-control">
                                                     <option value="<?php echo date('Y')-1;?>">
                                                         <?php echo date('Y')-1;?>
                                                     </option>
@@ -77,56 +77,34 @@
                                                         <?php echo date('Y');?>
                                                     </option>
                                                 </select>
+                                            </div>                                            
+                                        </div>
+
+                                        <div class="row">
+                                            <br>
+                                            <div class="col-lg-8">
                                             </div>
                                             <div class="col-lg-4">
-                                                <br>
-                                                <button type="submit" class="btn btn-success" style="float:right">
-                                                    <span>Close Period</span>
-                                                </button>
+                                                <input type="submit" id='insert' class='btn btn-success'>
                                             </div>
                                         </div>
                                     </form>
-                                </div>
+                                </div>                                
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
 
-                <!-- Logout Modal-->
-                <?php require_once("include/modal_logout.php"); ?>
-
-                <!-- Change Password Modal-->
-                <?php require_once("include/modal_chgpassword.php"); ?>
-
-                <!-- Upload Modal-->
-                <?php //require_once("include/modal_upload_customer.php"); ?>
-
                 <script>
-                    $(document).ready(function(){
-                        /*
-                        $('#myTable').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 10
-                            });
-                        $('#myTable_COA_VF05').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 10
-                            });
-                        
-                        $('#myTable_COA_QcDataHeader').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 5
-                            });
-                            
-                        $('#myTable_COA_QcDataDetail').dataTable({
-                            "order": [[ 0, 'desc' ]],
-                            "pageLength": 10
-                            });
-                        */
-                    });
+                
                 </script>
             </body>
         </html>
 <?php
+        }
+        else
+        {
+            echo "<script> alert('You are not authorization for this menu ... Please contact your administrator'); window.location.href='pMain.php'; </script>";
+        }
     }
 ?>

@@ -9,6 +9,9 @@
     }
     else
     {
+        if($user_user_type == "A" or $user_user_type == "P")
+        {
+
 ?>        
         <!DOCTYPE html>
         <html>
@@ -34,25 +37,55 @@
                         <div class="col-lg-6 col-lg-offset-3">
                             <div class="panel panel-primary" id="panel-header">
                                 <div class="panel-heading">
-                                    Criteria [ Picking List ]
+                                    Criteria [ Closing Month End Period ]
                                 </div>
 
                                 <div class="panel-body">
-                                    <!--<form method="post" action="pMA_Issue.php" target="_blank">-->
-                                    <form method="post" action="pMA_Issue.php">
+                                    <form method="post" action="closeMonthPeriod.php">
                                         <div class="form-group">
                                             <div class="col-lg-4">
-                                                <label>Picking Date From :</label>
-                                                <input type="date" name = 'fromDate' value='<?php echo date('Y-m-d')?>'>
+                                                <label>Month :</label>
+                                                <br>
+                                                <select name="cMonth" class='form-control'>
+                                                    <?php
+                                                        $aMonthValue = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
+                                                        $aMonth = array('01. January', '02. February', '03. March', '04. April', '05. May', '06. June', '07. July', '08. August', '09. September', '10. October', '11. November', '12. December');
+                                                        for($nMonth=0; $nMonth<=11; $nMonth++)
+                                                        {
+                                                            /*
+                                                            echo (int)date('m') . "<br>";
+                                                            echo $nMonth . "<br>";
+                                                            */
+                                                            
+                                                            if((int)date('m') == $nMonth+1)
+                                                            {
+                                                                echo "<option value='" . $aMonthValue[$nMonth] . "' selected>" . $aMonth[$nMonth]. "</option>";
+                                                            }
+                                                            else
+                                                            {
+                                                                echo "<option value='" . $aMonthValue[$nMonth] . "'>" . $aMonth[$nMonth]. "</option>";
+                                                            }
+                                                        }
+                                                    ?>
+                                                </select>
                                             </div>
                                             <div class="col-lg-4">
-                                                <label>Picking Date From :</label>
-                                                <input type="date" name = 'toDate' value='<?php echo date('Y-m-d')?>'>
+                                                <label>Year :</label>
+                                                <br>
+                                                <select name="cYear" class='form-control'>
+                                                    <option value="<?php echo date('Y')-1;?>">
+                                                        <?php echo date('Y')-1;?>
+                                                    </option>
+                                                    <option value="<?php echo date('Y');?>" selected>
+                                                        <?php echo date('Y');?>
+                                                    </option>
+                                                </select>
                                             </div>
                                             <div class="col-lg-4">
+                                                <label>&nbsp</label>
                                                 <br>
                                                 <button type="submit" class="btn btn-success" style="float:right">
-                                                    <span class="fa fa-search fa-lg">&nbsp&nbsp&nbspSearch</span>
+                                                    <span>Close Period</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -99,5 +132,11 @@
             </body>
         </html>
 <?php
+        }
+        else
+        {
+            echo "<script> alert('You are not authorization for this menu ... Please contact your administrator'); window.location.href='pMain.php'; </script>";
+        }
+
     }
 ?>

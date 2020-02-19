@@ -9,16 +9,19 @@
         <script src="../vendors/jquery-3.2.1/jquery-3.2.1.min.js"></script>
         <script src="../vendors/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
-        <style>
-            .login-bg-dark{
-                background-color: black;
+        <style>                
+            .login-bg{
+                background-image: url('images/background-03.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                opacity:0.9;
             }
         </style>
         <link rel="icon" href="images/tmsc-logo-128.png" type="image/x-icon" />
         <link rel="shortcut icon" href="images/tmsc-logo-128.png" type="image/x-icon" />
     </head>
 
-    <body style="background-color:silver;">
+    <body class='login-bg'>
     <!--<body background="images/qc9.jpg" style='background-repeat: no-repeat; background-size: cover;'>-->
         <br><br><br>
         <!-- Begin Container -->
@@ -31,15 +34,21 @@
                             <img src="images/tmsc-new-logo-1.png">
                         </div>
                         
-                        <div class="panel-body">
+                        <div class="panel-body" style='background-color: LemonChiffon'>                        
                             <form method="post">
                                 <div class="form-group">
                                     <label>e-Mail : *</label>
-                                    <input type="email" name="param_email" value="" placeholder="Input e-Mail" autofocus class="form-control">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="email" name="param_email" value="" placeholder="Input e-Mail" autofocus class="form-control">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Password : *</label>
-                                    <input type="password" name="param_password" value="" placeholder="Input Password" class="form-control">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>                                        
+                                        <input type="password" name="param_password" value="" placeholder="Input Password" class="form-control">
+                                    </div>
                                 </div>
                                 <br>
                                 <div align="right">

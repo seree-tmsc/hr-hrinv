@@ -60,7 +60,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>                             
-                            <a href="pMA_Request.php">
+                            <a href="user_request.php">
                                 <span class="fa fa-square-o fa-lg" style="color:navy"></span> 
                                 User request for Item
                             </a>
@@ -78,14 +78,14 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>                             
-                            <a href="pMA_Issue_Main.php" >
+                            <a href="item_issue_criteria.php" >
                                 <span class="fa fa-minus-square fa-lg" style="color:navy"></span> 
                                 Items Issue
                             </a>
                         </li>
                         <li class="divider">
                         <li>                             
-                            <a href="pMA_Receive_Main.php" >
+                            <a href="item_receive_criteria.php" >
                                 <span class="fa fa-plus-square fa-lg" style="color:navy"></span> 
                                 Items Receive
                             </a>
@@ -104,7 +104,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="rpt_PickingList_Main.php">
+                            <a href="user_request_rpt_criteria.php">
                                 <span class='fa fa-square-o fa-lg' style="color:navy"></span>
                                 Monthly Request Report
                                 <!-- add dropdownlist ALL/Closed/Open เพื่อเลือก ประเภท -->
@@ -113,14 +113,23 @@
                         </li>
                         <li class="divider">
                         <li>
-                            <a href="rpt_SumMonthlyInv.php" target='_blank'>
+                            <a href="user_request_all_lst_criteria.php">
+                                <span class='fa fa-square-o fa-lg' style="color:navy"></span>
+                                Monthly Request List
+                                <!-- add dropdownlist ALL/Closed/Open เพื่อเลือก ประเภท -->
+                                <!-- Req.Date / Req.No. / Cat.Code / Cat.Name / Item Code / itrm Name / Unit / QTY / Req.By / Status / Iss-Date -->
+                            </a>
+                        </li>
+                        <li class="divider">
+                        <li>
+                            <a href="monthly_inv_report.php" target='_blank'>
                                 <span class='fa fa-square-o fa-lg' style="color:navy"></span>
                                 Monthly Inventory Report
                                 <!-- Cat.Code / Cat.Name / Item Code. / Item Name / BF / In / OUT / BE -->
                             </a>
                         </li>
                         <li>
-                            <a href="rpt_SumMonthlyInvHist_Main.php">
+                            <a href="hist_inv_report_criteria.php">
                                 <span class='fa fa-square-o fa-lg' style="color:navy"></span>
                                 History Inventory Report
                                 <!-- Cat.Code / Cat.Name / Item Code. / Item Name / BF / In / OUT / BE -->
@@ -128,7 +137,13 @@
                         </li>
                         <li class="divider">
                         <li>
-                            <a href="list_HistInv_Criteria.php">
+                            <a href="monthly_inv_list.php">
+                                <span class='fa fa-square-o fa-lg' style="color:navy"></span>
+                                Monthly Inventory List
+                            </a>
+                        </li>
+                        <li>
+                            <a href="hist_inv_list_criteria.php">
                                 <span class='fa fa-square-o fa-lg' style="color:navy"></span>
                                 History Inventory List
                             </a>
@@ -146,7 +161,14 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="closeMonthPeriodMain.php">
+                            <a href="basic_business_flow.php">
+                                <span class='fa fa-thumbs-up fa-lg' style="color: Coral"></span>
+                                Basic Business Flow
+                            </a>
+                        </li>
+                        <li class="divider">
+                        <li>
+                            <a href="closeMonthPeriod_Criteria.php">
                                 <span class='fa fa-square-o fa-lg' style="color:blue"></span>
                                 Close Month Period
                             </a>

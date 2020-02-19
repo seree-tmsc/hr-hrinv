@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="panel-body">
-                                    <form method='post' action='rpt_SumMonthlyInvHist.php' target='_blank'>
+                                    <form method='post' action='hist_inv_report.php' target='_blank'>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <label>Select Month</label>

@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="panel-body">
-                                    <form method='post' action='rpt_PickingList.php' target='_blank'>
+                                    <form method='post' action='user_request_all_lst.php'>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <label>Select Month</label>
